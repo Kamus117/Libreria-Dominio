@@ -1,0 +1,27 @@
+@import './variables.css';
+
+.hero-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(https://img.freepik.com/foto-gratis/abundante-coleccion-libros-antiguos-estantes-madera-generados-ia_188544-29660.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699142400&semt=sph);
+    background-attachment: fixed;
+
+    color: var(--blanco);
+    height: 100vh;
+
+    text-shadow: var(--negro) 0 0 20px;
+}
+
+.hero-container h1{
+    margin: 0;
+    font-size: 5rem;
+}
+
+@media screen and (min-width: 700px){
+    .hero-container{
+        height: 70vh;
+    }
+}

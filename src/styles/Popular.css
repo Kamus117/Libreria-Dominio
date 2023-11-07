@@ -1,0 +1,17 @@
+.Popular{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    color: var(--blanco);
+}
+
+.product-card-container{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 15px;
+    column-gap: 15px;
+}
