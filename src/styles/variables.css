@@ -15,3 +15,17 @@
     --charlie:#B68973;
     --delta:rgb(57, 40, 75);
 }
+
+/* Animaciones */
+
+@keyframes navbar{
+    0%{
+        transform: translateX(90%);
+    }
+}
+
+@keyframes titulo{
+    0%{
+        transform: translateX(-100%);
+    }
+}
