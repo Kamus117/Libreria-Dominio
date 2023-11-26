@@ -12,9 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
-        <Route path='/nosotros' element={<AboutScreen />} />
-        <Route path='/tienda' element={<ShopScreen />} />
-        <Route path='/contacto' element={<ContactScreen />} />
+        <Route path='/nosotros' element={<AboutScreen/>}/>
+        <Route path='/tienda' element={<ShopScreen/>}/>
+        <Route path='/contacto' element={<ContactScreen/>}/>
       </Routes>
     </Router>
   </React.StrictMode>,
