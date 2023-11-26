@@ -12,10 +12,10 @@ function Header() {
                 toggleMenu();
             }
         };
-
-        if (isMenuOpen) {
-            document.addEventListener('mousedown', handleOutsideClick);
-        }
+        /* 
+                if (isMenuOpen) {
+                    document.addEventListener('mousedown', handleOutsideClick);
+                } */
 
         return () => {
             document.removeEventListener('mousedown', handleOutsideClick);
@@ -24,11 +24,14 @@ function Header() {
 
     return (
         <header>
-            <img
-                src="https://images.rawpixel.com/image_transparent_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtNTM1LWJvb2syLTA3YS5wbmc.png"
-                alt="logo de libro"
-                className="logo"
-            />
+            <a href="/">
+                <img
+                    src="https://images.rawpixel.com/image_transparent_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtNTM1LWJvb2syLTA3YS5wbmc.png"
+                    alt="logo de libro"
+                    className="logo"
+                />
+            </a>
+
             <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} ref={menuButtonRef}>
                 <div className="bar"></div>
                 <div className="bar"></div>
@@ -37,7 +40,7 @@ function Header() {
             <nav >
                 <ul className={`navbar ${isMenuOpen ? 'open' : ''}`}>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/tienda">Productos</a></li>
                     <li><a href="/nosotros">Nosotros</a></li>
                     <li><a href="/contacto">Contacto</a></li>
                 </ul>
