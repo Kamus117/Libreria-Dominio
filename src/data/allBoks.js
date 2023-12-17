@@ -1,17 +1,17 @@
-// /src/data.js
+//src/data/allBooks.js
 const data = [
     {
         id: 1,
         name: 'Halo Cryptum',
         category: 'ciencia Ficción',
-        price: 20.99,
+        price: 20,
         img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/5f/f2/5ff22892d05761defa1096ced00d8f39.jpg',
     },
     {
         id: 2,
         name: 'Halo Outcasts',
         category: 'ciencia Ficción',
-        price: 18.99,
+        price: 18,
         img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781668003282/halo-outcasts-9781668003282_hr.jpg',
     },
     {
@@ -60,14 +60,14 @@ const data = [
         id: 9,
         name:'García',
         category: 'biografia',
-        price: 12.99,
+        price: 12,
         img: 'https://www.clarin.com/img/2020/09/21/cwvW8cR24_720x0__1.jpg',
     },
     {
         id: 10,
         name:'S.H. La liga de los Pelirrojos',
         category:'Policial' ,
-        price: 10.50,
+        price: 10,
         img: 'https://buenosaires.gob.ar/sites/default/files/media/image/2021/08/17/40d5b9b0cb81c1fcb18bbf77751de3a6e54ed154.png',
     },
 
@@ -75,14 +75,14 @@ const data = [
         id: 11,
         name: 'S.H. El sabueso de los Baskerville',
         category: 'Policial',
-        price: 25.99,
+        price: 25,
         img: 'https://4.bp.blogspot.com/-JndqC5fUGtA/T7kfSDQowfI/AAAAAAAAAwY/t-wI8A6M7ds/s1600/102563.jpg',
     },
     {
         id: 12,
         name: 'S.H. Estudio Escarlata',
         category: 'Policial',
-        price: 22.99,
+        price: 22,
         img: 'https://assets-global.website-files.com/6034d7d1f3e0f52c50b2adee/625452f9a6137d58b8b112d5_6034d7d1f3e0f5af57b2b268_Estudio-en-escarlata-el-signo-de-los-cuatro-arthur-conan-doyle-editorial-alma.jpeg',
     },
 ];

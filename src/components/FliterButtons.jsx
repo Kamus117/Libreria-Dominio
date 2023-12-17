@@ -12,7 +12,7 @@ const FilterButtons = ({ categories, setFilteredCategory }) => {
     return (
         <div className="filter-buttons">
             {categories.map((category) => (
-                <button key={category} onClick={() => handleFilterClick(category)}>
+                <button key={category} onClick={() => setFilteredCategory(category)}>
                     {category}
                 </button>
             ))}

@@ -1,30 +1,92 @@
-import React, {useState} from "react";
+//Shop.jsx
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import data from "../data/allBoks";
-import FilterButtons from './FliterButtons';
+import FilterButtons from "./FliterButtons";
 import '../styles/Shop.css'
+import CartModal from './CartModal';
 
 
 const Shop = () => {
     const [filteredCategory, setFilteredCategory] = useState(null);
+    const [cartItems, setCartItems] = useState([]);
+    const [isModalOpen, setModalOpen] = useState(false);
 
-    // Filtra libros por categoría si se selecciona una categoría
+
+    const addToCart = (book) => {
+        // Busca si el libro ya está en el carrito
+        const existingItemIndex = cartItems.findIndex((item) => item.id === book.id);
+
+
+        if (existingItemIndex !== -1) {
+            // Si el libro ya está en el carrito, actualiza la cantidad
+            setCartItems((prevItems) =>
+                prevItems.map((item, index) =>
+                    index === existingItemIndex
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
+            );
+        } else {
+            // Si el libro no está en el carrito, agrégalo con cantidad 1
+            setCartItems((prevItems) => [...prevItems, { ...book, quantity: 1 }]);
+        }
+    };
+
+    const updateQuantity = (item, action) => {
+        setCartItems((prevItems) =>
+            prevItems.map((prevItem) =>
+                prevItem.id === item.id
+                    ? {
+                        ...prevItem,
+                        quantity:
+                            action === 'add' ? prevItem.quantity + 1 : prevItem.quantity - 1,
+                    }
+                    : prevItem
+            )
+        );
+    };
+
+    const removeFromCart = (itemId) => {
+        setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    };
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     const filteredBooks = filteredCategory
-        ? data.filter((book) => book.category === filteredCategory)
+        ? data.filter((book) => book.category.toLowerCase() === filteredCategory.toLowerCase())
         : data;
 
     // Obtén una lista única de categorías
     const categories = Array.from(new Set(data.map((book) => book.category)));
-
     return (
         <div className="Shop">
             <h1>Shop</h1>
             <FilterButtons categories={categories} setFilteredCategory={setFilteredCategory} />
             <div className="product-card-container">
-                {filteredBooks.map((book) => (
-                    <ProductCard key={book.id} {...book} />
-                ))}
+                {filteredBooks.map((book) => {
+                    
+                    return <ProductCard key={book.id} book={book} addToCart={addToCart} />;
+                })}
             </div>
+
+            <button className="floating-btn" onClick={openModal}>
+            <i className="fa-solid fa-cart-shopping"></i> ({cartItems.length})
+            </button>
+            {isModalOpen && (
+                <CartModal
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                    onClose={closeModal}
+                    updateQuantity={updateQuantity}
+                    removeFromCart={removeFromCart} />
+            )}
         </div>
     );
 };

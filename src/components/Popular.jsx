@@ -9,7 +9,7 @@ function Popular(){
             <h2>Libros Populares</h2>
             <div className="product-card-container">
                 {librosDestacados.map((book)=>(
-                    <ProductCard key={book.id} {...book}/>
+                    <ProductCard key={book.id} book = {book}/>
                 ))}
             </div>
         </div>
