@@ -1,6 +1,6 @@
 import React from "react";
-import ProductCard from "./ProductCard";
 import librosDestacados from "../data/products.js";
+import PopularProduct from "./PopularProduct.jsx";
 import '../styles/Popular.css'
 
 function Popular(){
@@ -9,7 +9,7 @@ function Popular(){
             <h2>Libros Populares</h2>
             <div className="product-card-container">
                 {librosDestacados.map((book)=>(
-                    <ProductCard key={book.id} book = {book}/>
+                    <PopularProduct key={book.id} book = {book}/>
                 ))}
             </div>
         </div>

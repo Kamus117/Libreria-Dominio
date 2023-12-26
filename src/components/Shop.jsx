@@ -1,5 +1,5 @@
 //Shop.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import data from "../data/allBoks";
 import FilterButtons from "./FliterButtons";
@@ -9,8 +9,23 @@ import CartModal from './CartModal';
 
 const Shop = () => {
     const [filteredCategory, setFilteredCategory] = useState(null);
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem(`cartItems`)));
     const [isModalOpen, setModalOpen] = useState(false);
+
+
+    useEffect(() => {
+        // Recupera el carrito del localStorage al cargar la página
+        const storedCart = localStorage.getItem("cartItems");
+        if (storedCart) {
+            setCartItems(JSON.parse(storedCart));
+        }
+    }, []);
+
+    useEffect(() => {
+        // Guarda el carrito en el localStorage después de cada modificación
+        console.log(`guardado`)
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
 
 
     const addToCart = (book) => {
