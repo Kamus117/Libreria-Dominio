@@ -48,6 +48,16 @@ const Shop = () => {
         }
     };
 
+    const cartLength = () =>{
+        console.log(cartItems.length)
+        if(cartItems.length!=0){
+            return cartItems.length
+        }
+        else{
+            return 0
+        }
+    }
+
     const updateQuantity = (item, action) => {
         setCartItems((prevItems) =>
             prevItems.map((prevItem) =>
@@ -92,7 +102,7 @@ const Shop = () => {
             </div>
 
             <button className="floating-btn" onClick={openModal}>
-            <i className="fa-solid fa-cart-shopping"></i> ({cartItems.length})
+            <i className="fa-solid fa-cart-shopping"></i> {cartLength()}
             </button>
             {isModalOpen && (
                 <CartModal
