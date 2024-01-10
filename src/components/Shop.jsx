@@ -9,7 +9,7 @@ import CartModal from './CartModal';
 
 const Shop = () => {
     const [filteredCategory, setFilteredCategory] = useState(null);
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem(`cartItems`)));
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem(`cartItems`))) || useState([]);
     const [isModalOpen, setModalOpen] = useState(false);
 
 
